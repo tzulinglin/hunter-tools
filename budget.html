@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Hunter</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <style>
+        .monotext {font-family: monospace;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form>
+            <div class="form-group">
+              <label for="formGroupExampleInput">月數</label>
+              <input type="text" class="form-control monotext" id="months" value="12">
+            </div>
+            <div class="form-group">
+              <label for="basemonthlypay">底薪</label>
+              <input type="text" class="form-control monotext" id="basemonthlypay" value="30000">
+            </div>
+          </form>
+          <div id="total">
+              
+          </div>
+    </div>
+    <Script>
+        const $month = $('#months')
+        const $base = $("#basemonthlypay")
+        const $result = $("#total")
+        function 計算機() {
+            $result.text($month.val() * $base.val())
+        }
+        $month.on('change', 計算機)
+        $base.on('change', 計算機)
+        $(document).ready(計算機)
+    </Script>
+</body>
+</html>
