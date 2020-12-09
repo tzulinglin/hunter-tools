@@ -21,22 +21,44 @@
             <div class="form-group">
               <label for="basemonthlypay">底薪</label>
               <input type="text" class="form-control monotext" id="basemonthlypay" value="30000">
+              <div id="total"></div>
+              <div id="expectation"></div>
             </div>
+            <input id="reset" type="reset" value="clear" />
           </form>
-          <div id="total">
-              
-          </div>
+          <button id="plus10percent" type="button" class="btn btn-outline-info">10%</button>
+          <button id="plus15percent" type="button" class="btn btn-success">+15%</button>
+          <button id="plus20percent" type="button" class="btn btn-outline-warning">20%</button> 
     </div>
     <Script>
         const $month = $('#months')
-        const $base = $("#basemonthlypay")
-        const $result = $("#total")
+        const $base = $('#basemonthlypay')
+        const $result = $('#total')
+        const $expectation = $('#expectation')
+        let expectation=1
         function 計算機() {
             $result.text($month.val() * $base.val())
+            $expectation.text(
+                Math.round($month.val() * $base.val() * expectation)
+            )
         }
         $month.on('change', 計算機)
         $base.on('change', 計算機)
+        $('#reset').on('click', 計算機)
+        $('#plus10percent').on('click', function() {
+            expectation = 1.10
+            計算機()
+        })
+        $('#plus15percent').on('click', function() {
+            expectation = 1.15
+            計算機()
+        })
+        $('#plus20percent').on('click', function() {
+            expectation = 1.20
+            計算機()
+        })
         $(document).ready(計算機)
+    
     </Script>
 </body>
 </html>
